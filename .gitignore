@@ -1,0 +1,13 @@
+target/
+*.war
+*.zip
+*.class
+.vscode/
+.idea/
+.settings/
+.classpath
+.project
+*.log
+.DS_Store
+.github/modernize/
+servlet_debug.log
