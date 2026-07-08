@@ -209,4 +209,5 @@ Website Sun Coffee Management System có các chức năng chính sau:
   - Mật khẩu: `staff123`
 
 ## 8. Video thuyết trình và demo
+Link: https://drive.google.com/file/d/1vkctlHy064lcbPOmsiizY2IljP-hH1sZ/view?usp=sharing
 
