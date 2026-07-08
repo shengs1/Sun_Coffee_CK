@@ -163,7 +163,7 @@ Link: https://drive.google.com/file/d/1vkctlHy064lcbPOmsiizY2IljP-hH1sZ/view?usp
 
 ## 8. Phân công công việc
 
-### Võ Thị Mỹ Tuyền - Backend đăng nhập và POS
+### 8.1 Võ Thị Mỹ Tuyền - Backend đăng nhập và POS
 - User.java
 - Order.java
 - OrderDetail.java
@@ -174,13 +174,13 @@ Link: https://drive.google.com/file/d/1vkctlHy064lcbPOmsiizY2IljP-hH1sZ/view?usp
 - OrderServlet.java
 - AuthenticationFilter.java
 
-### Nguyễn Thị Hải Anh - Frontend đăng nhập và POS
+### 8.2 Nguyễn Thị Hải Anh - Frontend đăng nhập và POS
 - login.jsp
 - staff/order-pos.jsp
 - staff-style.css
 - staff-script.js
 
-### Trần Quốc Anh Dũng 3 - Backend sản phẩm, danh mục, thống kê
+### 8.3 Trần Quốc Anh Dũng - Backend sản phẩm, danh mục, thống kê
 - Product.java
 - Category.java
 - ProductDAO.java
@@ -189,7 +189,7 @@ Link: https://drive.google.com/file/d/1vkctlHy064lcbPOmsiizY2IljP-hH1sZ/view?usp
 - CategoryServlet.java
 - StatisticServlet.java
 
-### Trịnh Gia Hưng 4 - Backend nhân viên, kho, đơn hàng admin
+### 8.4 Trịnh Gia Hưng - Backend nhân viên, kho, đơn hàng admin
 - Employee.java
 - InventoryItem.java
 - EmployeeDAO.java
@@ -199,7 +199,7 @@ Link: https://drive.google.com/file/d/1vkctlHy064lcbPOmsiizY2IljP-hH1sZ/view?usp
 - EmployeeServlet.java
 - InventoryServlet.java
 
-### Nguyễn Đức Thịnh 5 - Frontend admin và file chung
+### 8.5 Nguyễn Đức Thịnh - Frontend admin và file chung
 - admin/*.jsp
 - components/*.jsp
 - admin-style.css
