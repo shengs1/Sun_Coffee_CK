@@ -3,13 +3,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="vi_VN" />
 <c:if test="${empty sessionScope.user || sessionScope.user.role != 'admin'}"><c:redirect url="/login.jsp"/></c:if>
-<c:set var="activePage" value="statistics"/>
+<c:set var="activePage" value="statistics"/><c:set var="pageTitle" value="Thống kê doanh thu"/><c:set var="pageTitleIcon" value="📈"/><c:set var="pageDescription" value="Tổng hợp doanh thu và sản phẩm bán chạy"/>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Thống kê – Sun Coffee</title>
-    <c:set var="pageTitle" value="Thống kê doanh thu"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin-style.css">
@@ -21,10 +20,7 @@
 <%@ include file="../components/sidebar-admin.jsp" %>
 
 <main class="main-content">
-    <div class="page-header">
-        <h2>📈 Thống kê doanh thu</h2>
-        <p>Tổng hợp doanh thu và sản phẩm bán chạy</p>
-    </div>
+
 
     <div class="stats-grid">
         <div class="stat-card">

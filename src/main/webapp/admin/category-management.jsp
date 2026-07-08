@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:if test="${empty sessionScope.user || sessionScope.user.role != 'admin'}"><c:redirect url="/login.jsp"/></c:if>
-<c:set var="activePage" value="category"/>
+<c:set var="activePage" value="category"/><c:set var="pageTitle" value="Quản lý danh mục"/><c:set var="pageTitleIcon" value="📂"/><c:set var="pageDescription" value="Thêm, sửa, xóa danh mục sản phẩm"/>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -19,19 +19,20 @@
 <%@ include file="../components/sidebar-admin.jsp" %>
 
 <main class="main-content">
-    <div class="page-header d-flex justify-between align-center flex-wrap gap-1">
-        <div>
-            <h2>📂 Quản lý danh mục</h2>
-            <p>Thêm, sửa, xóa danh mục sản phẩm</p>
+    <c:if test="${not empty error}">
+        <div class="alert-error">
+            ⚠️ ${error}
         </div>
+    </c:if>
+    <div class="page-header d-flex justify-end align-center flex-wrap gap-1">
         <button class="btn btn-primary" onclick="openModal('modal-add-cat')">➕ Thêm danh mục</button>
     </div>
 
     <div class="filter-bar">
         <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input class="search-input" placeholder="Tìm tên danh mục..."
-                   oninput="searchTable(this.value,'cat-table',0)">
+            <input class="search-input" placeholder="Tìm theo tên danh mục..."
+                   oninput="searchTable(this.value,'cat-table',1)">
         </div>
     </div>
 

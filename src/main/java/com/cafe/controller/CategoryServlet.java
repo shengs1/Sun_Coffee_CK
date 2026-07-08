@@ -52,7 +52,12 @@ public class CategoryServlet extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/categories");
         } catch (Exception e) {
             e.printStackTrace();
-            req.setAttribute("error", "Lỗi xử lý danh mục: " + e.getMessage());
+            String errorMsg = e.getMessage();
+            if (errorMsg != null && (errorMsg.contains("foreign key constraint fails") || errorMsg.contains("Cannot delete or update a parent row"))) {
+                req.setAttribute("error", "Không thể xóa danh mục này vì vẫn còn sản phẩm thuộc danh mục. Vui lòng cập nhật hoặc xóa các sản phẩm đó trước khi xóa danh mục.");
+            } else {
+                req.setAttribute("error", "Lỗi xử lý danh mục: " + errorMsg);
+            }
             doGet(req, resp);
         }
     }

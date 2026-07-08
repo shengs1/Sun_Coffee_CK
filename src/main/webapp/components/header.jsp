@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <header class="admin-header">
     <div>
-        <h1>${pageTitle}</h1>
-        <p>Sun Coffee Management System</p>
+        <h1>${not empty pageTitleIcon ? pageTitleIcon : ''} ${not empty pageTitle ? pageTitle : 'Sun Coffee'}</h1>
+        <p>${not empty pageDescription ? pageDescription : 'Sun Coffee Management System'}</p>
     </div>
     <div class="admin-user">
         <span>👤 ${sessionScope.user.fullName}</span>

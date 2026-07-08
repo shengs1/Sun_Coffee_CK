@@ -49,7 +49,7 @@ function addToCart(productId, name, price) {
     
     saveCart();   // Lưu lại
     renderCart(); // Cập nhật giao diện
-    showToast('Đã thêm: ' + name, 'toast-added');
+    showToast('\u0110\u00e3 th\u00eam: ' + name, 'toast-added');
 }
 
 // Thay đổi số lượng của sản phẩm trong giỏ hàng
@@ -74,13 +74,13 @@ function removeFromCart(productId) {
     cart = cart.filter(item => item.productId !== productId);
     saveCart();
     renderCart();
-    showToast('Đã xóa món khỏi đơn hàng', 'toast-error');
+    showToast('\u0110\u00e3 x\u00f3a m\u00f3n kh\u1ecfi \u0111\u01a1n h\u00e0ng', 'toast-error');
 }
 
 // Hủy toàn bộ đơn hàng
 function clearCart() {
     if (cart.length === 0) return;
-    if (!confirm('Bạn có chắc chắn muốn xóa toàn bộ đơn hàng?')) return;
+    if (!confirm('B\u1ea1n c\u00f3 ch\u1eafc ch\u1eafn mu\u1ed1n x\u00f3a to\u00e0n b\u1ed9 \u0111\u01a1n h\u00e0ng?')) return;
     
     cart = [];
     saveCart();
@@ -92,7 +92,7 @@ function clearCart() {
     if (noteInput) noteInput.value = '';
     
     renderCart();
-    showToast('Đã xóa toàn bộ đơn hàng', 'toast-error');
+    showToast('\u0110\u00e3 x\u00f3a to\u00e0n b\u1ed9 \u0111\u01a1n h\u00e0ng', 'toast-error');
 }
 
 // Tính tiền chưa giảm giá
@@ -205,7 +205,7 @@ function renderCart() {
 // Gửi thông tin đơn hàng lên hệ thống để lưu
 function submitOrder() {
     if (cart.length === 0) {
-        alert('Vui lòng chọn món trước khi thanh toán');
+        alert('Vui l\u00f2ng ch\u1ecdn m\u00f3n tr\u01b0\u1edbc khi thanh to\u00e1n');
         return;
     }
 
@@ -290,7 +290,7 @@ function showToast(message, type = 'toast-added') {
     // Tạo thẻ div hiển thị thông báo
     const toast = document.createElement('div');
     toast.className = `toast ${type}`;
-    toast.innerHTML = `<span>${type === 'toast-added' ? '✅' : '❌'}</span> <span>${message}</span>`;
+    toast.innerHTML = `<span>${type === 'toast-added' ? '\u2705' : '\u274c'}</span> <span>${message}</span>`;
     document.body.appendChild(toast);
     
     // Cho hiện thông báo

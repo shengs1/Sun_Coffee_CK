@@ -3,10 +3,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="vi_VN" />
 <c:if test="${empty sessionScope.user || sessionScope.user.role != 'admin'}"><c:redirect url="/login.jsp"/></c:if>
-<c:set var="activePage" value="dashboard"/><c:set var="pageTitle" value="Tổng quan"/>
+<c:set var="activePage" value="dashboard"/><c:set var="pageTitle" value="Tổng quan"/><c:set var="pageTitleIcon" value="📊"/><c:set var="pageDescription" value="Dữ liệu tổng quan hệ thống Sun Coffee"/>
 <!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Tổng quan – Sun Coffee</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin-style.css"></head>
 <body><div class="app-wrapper"><%@ include file="../components/header.jsp" %><%@ include file="../components/sidebar-admin.jsp" %>
-<main class="main-content"><div class="page-header"><h2>📊 Tổng quan</h2><p>Dữ liệu tổng quan hệ thống Sun Coffee</p></div>
+<main class="main-content">
 <c:if test="${not empty error}"><div class="alert-error">${error}</div></c:if>
 <div class="stats-grid">
 <div class="stat-card"><div class="stat-icon">💰</div><div class="stat-value"><fmt:formatNumber value="${totalRevenue}" type="currency" currencySymbol="₫" maxFractionDigits="0"/></div><div class="stat-label">Tổng doanh thu</div></div>

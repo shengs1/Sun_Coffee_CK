@@ -123,10 +123,15 @@ public class OrderDAO {
         StringBuilder sql = new StringBuilder("SELECT o.*, u.full_name AS staff_name FROM orders o JOIN users u ON o.user_id=u.user_id WHERE 1=1");
         List<Object> params = new ArrayList<>();
         if (orderCodeOrId != null && !orderCodeOrId.trim().isEmpty()) {
+            sql.append(" AND (CONCAT('SC-', DATE_FORMAT(o.created_at, '%d%m%Y'), '-', LPAD(o.order_id, 4, '0')) LIKE ?");
+            params.add("%" + orderCodeOrId.trim() + "%");
+            
             String digits = orderCodeOrId.replaceAll("\\D", "");
-            if (digits.length() >= 4) digits = digits.substring(digits.length() - 4);
-            sql.append(" AND o.order_id=?");
-            params.add(parseInt(digits, -1));
+            if (!digits.isEmpty()) {
+                sql.append(" OR o.order_id = ?");
+                params.add(parseInt(digits, -1));
+            }
+            sql.append(")");
         }
         if (tableId != null && !tableId.trim().isEmpty()) {
             sql.append(" AND o.table_id=?");

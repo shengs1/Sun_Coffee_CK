@@ -64,7 +64,12 @@ public class EmployeeServlet extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/employees");
         } catch (Exception e) {
             e.printStackTrace();
-            req.setAttribute("error", "L\u1ed7i x\u1eed l\u00fd nh\u00e2n vi\u00ean: " + e.getMessage());
+            String errorMsg = e.getMessage();
+            if (errorMsg != null && (errorMsg.contains("foreign key constraint fails") || errorMsg.contains("Cannot delete or update a parent row"))) {
+                req.setAttribute("error", "Không thể xóa nhân viên này do có ràng buộc dữ liệu liên quan. Vui lòng chuyển trạng thái nhân viên thành 'Ngừng hoạt động'.");
+            } else {
+                req.setAttribute("error", "Lỗi xử lý nhân viên: " + errorMsg);
+            }
             doGet(req, resp);
         }
     }

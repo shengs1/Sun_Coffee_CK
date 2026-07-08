@@ -6,13 +6,12 @@
 <c:if test="${empty sessionScope.user || sessionScope.user.role != 'admin'}">
     <c:redirect url="/login.jsp"/>
 </c:if>
-<c:set var="activePage" value="menu"/>
+<c:set var="activePage" value="menu"/><c:set var="pageTitle" value="Quản lý thực đơn"/><c:set var="pageTitleIcon" value="☕"/><c:set var="pageDescription" value="Thêm, chỉnh sửa, xóa các sản phẩm trong thực đơn"/>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Quản lý thực đơn – Sun Coffee</title>
-    <c:set var="pageTitle" value="Quản lý thực đơn"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin-style.css">
@@ -23,11 +22,12 @@
 <%@ include file="../components/sidebar-admin.jsp" %>
 
 <main class="main-content">
-    <div class="page-header d-flex justify-between align-center flex-wrap gap-1">
-        <div>
-            <h2>☕ Quản lý thực đơn</h2>
-            <p>Thêm, chỉnh sửa, xóa các sản phẩm trong thực đơn</p>
+    <c:if test="${not empty error}">
+        <div class="alert-error">
+            ⚠️ ${error}
         </div>
+    </c:if>
+    <div class="page-header d-flex justify-end align-center flex-wrap gap-1">
         <button class="btn btn-primary" onclick="openModal('modal-add-product')">
             ➕ Thêm sản phẩm
         </button>
@@ -36,8 +36,8 @@
     <div class="filter-bar">
         <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input class="search-input" placeholder="Tìm tên sản phẩm..."
-                   oninput="searchTable(this.value,'product-table',1)">
+            <input class="search-input" placeholder="Tìm theo tên sản phẩm..."
+                   oninput="searchTable(this.value,'product-table',2)">
         </div>
         <select class="btn btn-ghost btn-sm"
                 onchange="filterTable(this.value,'product-table',2)">

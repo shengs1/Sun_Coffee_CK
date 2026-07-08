@@ -48,7 +48,12 @@ public class ProductServlet extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/products");
         } catch (Exception e) {
             e.printStackTrace();
-            req.setAttribute("error", "Lỗi xử lý sản phẩm: " + e.getMessage());
+            String errorMsg = e.getMessage();
+            if (errorMsg != null && (errorMsg.contains("foreign key constraint fails") || errorMsg.contains("Cannot delete or update a parent row"))) {
+                req.setAttribute("error", "Không thể xóa sản phẩm này vì đã có hóa đơn sử dụng nó. Bạn chỉ có thể cập nhật trạng thái của sản phẩm thành 'Hết hàng' (Ngừng hoạt động).");
+            } else {
+                req.setAttribute("error", "Lỗi xử lý sản phẩm: " + errorMsg);
+            }
             doGet(req, resp);
         }
     }

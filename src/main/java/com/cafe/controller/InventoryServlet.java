@@ -45,7 +45,12 @@ public class InventoryServlet extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/inventory");
         } catch (Exception e) {
             e.printStackTrace();
-            req.setAttribute("error", "L\u1ed7i x\u1eed l\u00fd kho nguy\u00ean li\u1ec7u: " + e.getMessage());
+            String errorMsg = e.getMessage();
+            if (errorMsg != null && (errorMsg.contains("foreign key constraint fails") || errorMsg.contains("Cannot delete or update a parent row"))) {
+                req.setAttribute("error", "Không thể xóa nguyên liệu này do có dữ liệu liên kết. Bạn có thể cập nhật trạng thái nguyên liệu thành 'Ngừng dùng'.");
+            } else {
+                req.setAttribute("error", "Lỗi xử lý kho nguyên liệu: " + errorMsg);
+            }
             doGet(req, resp);
         }
     }
