@@ -160,9 +160,10 @@ Website Sun Coffee Management System có các chức năng chính sau:
 ## 7. Video thuyết trình và demo
 Link: https://drive.google.com/file/d/1vkctlHy064lcbPOmsiizY2IljP-hH1sZ/view?usp=sharing
 
+
 ## 8. Phân công công việc
 
-### Thành viên 1 - Backend đăng nhập và POS
+### Võ Thị Mỹ Tuyền - Backend đăng nhập và POS
 - User.java
 - Order.java
 - OrderDetail.java
@@ -173,13 +174,13 @@ Link: https://drive.google.com/file/d/1vkctlHy064lcbPOmsiizY2IljP-hH1sZ/view?usp
 - OrderServlet.java
 - AuthenticationFilter.java
 
-### Thành viên 2 - Frontend đăng nhập và POS
+### Nguyễn Thị Hải Anh - Frontend đăng nhập và POS
 - login.jsp
 - staff/order-pos.jsp
 - staff-style.css
 - staff-script.js
 
-### Thành viên 3 - Backend sản phẩm, danh mục, thống kê
+### Trần Quốc Anh Dũng 3 - Backend sản phẩm, danh mục, thống kê
 - Product.java
 - Category.java
 - ProductDAO.java
@@ -188,7 +189,7 @@ Link: https://drive.google.com/file/d/1vkctlHy064lcbPOmsiizY2IljP-hH1sZ/view?usp
 - CategoryServlet.java
 - StatisticServlet.java
 
-### Thành viên 4 - Backend nhân viên, kho, đơn hàng admin
+### Trịnh Gia Hưng 4 - Backend nhân viên, kho, đơn hàng admin
 - Employee.java
 - InventoryItem.java
 - EmployeeDAO.java
@@ -198,7 +199,7 @@ Link: https://drive.google.com/file/d/1vkctlHy064lcbPOmsiizY2IljP-hH1sZ/view?usp
 - EmployeeServlet.java
 - InventoryServlet.java
 
-### Thành viên 5 - Frontend admin và file chung
+### Nguyễn Đức Thịnh 5 - Frontend admin và file chung
 - admin/*.jsp
 - components/*.jsp
 - admin-style.css
